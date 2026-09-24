@@ -11,4 +11,4 @@ En esta sección se encuentran las presentaciones utilizadas durante el curso.
 
 ---
 
-[Volver a la página principal](../)
+[Volver a la página principal](../README.md)

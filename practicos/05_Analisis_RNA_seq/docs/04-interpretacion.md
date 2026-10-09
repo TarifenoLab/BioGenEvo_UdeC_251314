@@ -23,8 +23,8 @@ Conserva siempre una copia de la tabla completa, incluidos los genes no signific
 
 Los identificadores Ensembl permiten reconocer genes de manera consistente, pero sus nombres facilitan la lectura y búsqueda de funciones. Utilizaremos **BioMart** para obtener la correspondencia entre ambos.
 
-1. Abre **[Ensembl BioMart](https://www.ensembl.org/biomart/martview)**.
-2. En **Choose database**, selecciona **Ensembl Genes**. Utiliza la versión correspondiente a la anotación del práctico; para versiones anteriores puedes consultar los [archivos de Ensembl](https://www.ensembl.org/info/website/archives/index.html).
+1. Abre **[Ensembl BioMart](https://jun2026.archive.ensembl.org/biomart/martview/8436712ae1c2aa8b82f2bf5248248750)**.
+2. En **Choose database**, selecciona **Ensembl Genes**. 
 3. En **Choose dataset**, selecciona **Zebrafish genes (Danio rerio)**.
 4. Abre **Filters** y busca la selección por lista de identificadores, habitualmente **GENE → Input external references ID list**.
 5. Selecciona **Gene stable ID** y pega los identificadores de la tabla completa de DESeq2, uno por línea y sin encabezado. Puedes extraer esa columna con **Cut columns from a table** en Galaxy y descargarla como texto.

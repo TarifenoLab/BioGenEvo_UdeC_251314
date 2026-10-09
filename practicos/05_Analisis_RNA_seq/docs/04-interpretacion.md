@@ -150,22 +150,48 @@ Si no aparecen términos significativos, informa ese resultado: puede relacionar
 
 Una ruta enriquecida no está necesariamente activada o inhibida en su conjunto. Para proponer una interpretación, considera las funciones de sus genes, la dirección de sus cambios y cómo se relacionan dentro de la ruta.
 
-## Extensión opcional. GSEA con fgsea
+Extensión opcional. GSEA con fgsea
 
 A diferencia de la sobrerrepresentación, **GSEA** evalúa si los genes de un conjunto se concentran hacia alguno de los extremos de una lista ordenada. No utiliza únicamente genes significativos.
 
-Para esta extensión necesitarás un ranking derivado de tu análisis y conjuntos de genes compatibles:
+### Importar los archivos proporcionados para esta actividad
 
-1. Desde la tabla completa, selecciona genes con **estadístico Wald (`stat`) finito** y ordénalos de mayor a menor. No conviertas los valores ausentes a cero.
-2. Prepara una tabla de dos columnas: **identificador único** y **estadístico**. Conserva la dirección MUT/WT y registra cómo resolviste duplicados, si los hubiera.
-3. Utiliza un archivo **GMT** cuyos conjuntos compartan especie y tipo de identificador con el ranking. Confirma que exista solapamiento entre ambos.
-4. Busca **fgsea** en Galaxy, selecciona el ranking, indica si tiene encabezado y carga el GMT con el formato que admite la herramienta.
-5. Registra versión, límites de tamaño de conjuntos, método y semilla si se ofrece. Solicita gráficos y ejecuta.
-6. Revisa `NES`, `padj`, tamaño del conjunto y los genes de la fracción principal (*leading edge*). Puedes consultar el [tutorial de fgsea](https://bioconductor.org/packages/release/bioc/vignettes/fgsea/inst/doc/fgsea-tutorial.html).
+Utilizaremos los dos archivos proporcionados para el ejercicio: una **lista ordenada de genes con identificadores Entrez** y un archivo de **conjuntos de genes de MSigDB**. Son entradas preparadas para esta actividad; la lista ordenada no es una salida nueva de tu ejecución de DESeq2.
 
-Con este ranking, un **NES positivo** indica concentración hacia los estadísticos positivos, asociados a mayor expresión en MUT; uno negativo indica concentración hacia el extremo asociado a menor expresión en MUT.
+En **Upload Data**, presiona **Paste/Fetch data**, pega una URL por cuadro y reemplaza **New file** por el nombre indicado. Presiona nuevamente **Paste/Fetch data** para añadir el segundo archivo y luego **Start**.
 
-[MSigDB](https://www.gsea-msigdb.org/gsea/msigdb/index.jsp) ofrece colecciones humanas y murinas. Para utilizarlas con pez cebra se requiere una conversión explícita de ortólogos y documentar las pérdidas y correspondencias múltiples. Cambiar identificadores Ensembl por Entrez **no cambia la especie**. Realiza esta extensión cuando dispongas de conjuntos compatibles o de una conversión documentada.
+**Nombre: `DE_Entrez_final`**  
+**Tipo de dato:** `tabular`.
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b5a88abd1e79013e18/display?to_ext=tabular
+```
+
+**Nombre: `msigdb.v7.5.1.entrez.gmt`**
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b55590ea31a85fc760/display?to_ext=tabular
+```
+
+El segundo archivo contiene los conjuntos de genes y se proporciona mediante una URL de descarga tabular. Al importarlo, utiliza el tipo de dato admitido por el campo **Gene Sets** de fgsea; el nombre del archivo y la extensión solicitada en la URL no sustituyen revisar su formato.
+
+### Ejecutar fgsea en Galaxy
+
+1. Busca **fgsea** en el buscador de herramientas.
+2. En **Ranked Genes**, selecciona `DE_Entrez_final`.
+3. En **File has header**, selecciona **Yes** si la primera fila contiene nombres de columnas; si contiene directamente un identificador y su valor, selecciona **No**.
+4. En **Gene Sets**, selecciona `msigdb.v7.5.1.entrez.gmt`.
+5. Activa **Output Plots** y registra los demás parámetros utilizados.
+6. Ejecuta y abre la tabla y los gráficos de enriquecimiento. Consulta el [tutorial de fgsea](https://bioconductor.org/packages/release/bioc/vignettes/fgsea/inst/doc/fgsea-tutorial.html) para interpretar las salidas.
+
+Revisa `NES`, `padj`, tamaño del conjunto y los genes de la fracción principal (*leading edge*). Antes de interpretar el signo del NES, identifica qué métrica ordena la lista proporcionada y qué comparación representa. Si los valores positivos corresponden a mayor expresión en MUT, un NES positivo indica concentración hacia ese extremo y uno negativo hacia el extremo opuesto.
+
+### Relacionar este ejercicio con tus resultados
+
+Para realizar GSEA sobre **tu propia ejecución**, debes preparar un ranking con los genes de la tabla completa que tengan estadístico Wald (`stat`) finito, sin limitarlo a genes significativos ni convertir valores ausentes a cero. La lista debe contener identificadores únicos y conservar la dirección MUT/WT.
+
+Los identificadores del ranking deben corresponder a los utilizados por los conjuntos de genes, incluida la especie o una conversión de ortólogos documentada. [MSigDB](https://www.gsea-msigdb.org/gsea/msigdb/index.jsp) ofrece colecciones humanas y murinas: **convertir identificadores Ensembl de pez cebra a Entrez de pez cebra no los convierte en genes humanos**. La procedencia y conversión de la lista proporcionada determinan qué conclusiones biológicas pueden extraerse de este ejercicio.
+
 
 ## Registro del análisis
 

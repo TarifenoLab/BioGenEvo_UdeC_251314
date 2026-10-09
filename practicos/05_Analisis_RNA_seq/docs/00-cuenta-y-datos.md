@@ -49,46 +49,119 @@ Por ejemplo, `WT1_R1` se analizará junto con `WT1_R2`, nunca junto con `WT2_R2`
 
 ## Paso 4. Importar las lecturas a Galaxy
 
-Importaremos los archivos directamente desde sus enlaces. **No necesitas descargarlos primero a tu computador.**
+Importaremos los archivos directamente desde sus direcciones. **No necesitas descargarlos a tu computador.** Las direcciones aparecen en bloques de texto para que puedas copiarlas y pegarlas en Galaxy.
 
-1. Abre **Upload Data** en Galaxy.
-2. Selecciona la opción para importar desde una URL, normalmente **Paste/Fetch data**, dentro de la pestaña de datos regulares (**Regular**).
-3. Copia la dirección del enlace **Descargar** de la tabla y pégala en el campo correspondiente. Para copiarla, puedes usar el botón derecho sobre el enlace y seleccionar «Copiar dirección del enlace».
-4. Añade una entrada por archivo. Si el formulario permite varias direcciones en una misma entrada, pega una URL por línea.
-5. Selecciona `fastqsanger` como tipo de dato para las lecturas, si el formulario solicita especificarlo.
-6. Inicia la importación con **Start** y espera a que termine. Si la ventana ofrece un botón **Close**, puedes cerrarla mientras Galaxy continúa trabajando.
-7. Cuando los archivos aparezcan en el historial, cambia sus nombres para que coincidan exactamente con la primera columna de la tabla.
+**Añade un archivo por cuadro**, para asignarle su nombre antes de iniciar la importación:
 
-### Lecturas de las muestras WT y MUT
+1. Abre **Upload Data** en Galaxy y selecciona la pestaña **Regular**.
+2. Presiona **Paste/Fetch data** para abrir un cuadro de importación.
+3. Copia la URL completa del primer archivo que aparece más abajo y pégala en ese cuadro. Puedes usar el botón de copiar del bloque de texto, si aparece, o seleccionar la dirección y copiarla.
+4. En el campo que muestra **New file** (o **Newfile**), reemplaza ese texto por el nombre indicado encima de la URL. Por ejemplo, escribe `WT1_R1`.
+5. Selecciona `fastqsanger` como tipo de dato para las lecturas.
+6. Presiona nuevamente **Paste/Fetch data** para abrir **un cuadro nuevo**. Pega allí la URL del siguiente archivo y escribe su nombre en el campo **New file**.
+7. Repite el procedimiento hasta añadir los doce archivos, cada uno con su propia URL y nombre. **No pegues varias URLs en un mismo cuadro ni reemplaces la URL del archivo anterior.**
+8. Revisa los nombres y presiona **Start** para iniciar la importación. Puedes cerrar la ventana con **Close** mientras Galaxy continúa trabajando.
 
-| Nombre en el historial | Muestra | Lectura | Enlace del archivo |
-|---|---|---|---|
-| `WT1_R1` | WT1 | R1 | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b59b48b4f8acc1afe6/display?to_ext=fastqsanger) |
-| `WT1_R2` | WT1 | R2 | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b56ffd26f53292268a/display?to_ext=fastqsanger) |
-| `WT2_R1` | WT2 | R1 | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b5dc135cfdc48d8089/display?to_ext=fastqsanger) |
-| `WT2_R2` | WT2 | R2 | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b56a8d627c4f6b68ab/display?to_ext=fastqsanger) |
-| `WT3_R1` | WT3 | R1 | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b581858f854fe86cd5/display?to_ext=fastqsanger) |
-| `WT3_R2` | WT3 | R2 | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b58fb3d9efb1be923e/display?to_ext=fastqsanger) |
-| `MUT1_R1` | MUT1 | R1 | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b5f83d87abc4a3b84c/display?to_ext=fastqsanger) |
-| `MUT1_R2` | MUT1 | R2 | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b5a5f986baf67ac388/display?to_ext=fastqsanger) |
-| `MUT2_R1` | MUT2 | R1 | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b5ff7f3c6c38ed670d/display?to_ext=fastqsanger) |
-| `MUT2_R2` | MUT2 | R2 | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b56c392c8d8434b417/display?to_ext=fastqsanger) |
-| `MUT3_R1` | MUT3 | R1 | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b59e7978168e44e2af/display?to_ext=fastqsanger) |
-| `MUT3_R2` | MUT3 | R2 | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b53ac2bb3768dccef1/display?to_ext=fastqsanger) |
+### Lecturas de las muestras WT
 
-Para cambiar un nombre, abre la opción de edición de atributos del dataset, habitualmente representada por un **lápiz**, modifica el campo **Name** y guarda. Si el formulario de importación permite asignar nombres desde el inicio, también puedes hacerlo allí.
+**Nombre del archivo: `WT1_R1`**
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b59b48b4f8acc1afe6/display?to_ext=fastqsanger
+```
+
+**Nombre del archivo: `WT1_R2`**
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b56ffd26f53292268a/display?to_ext=fastqsanger
+```
+
+**Nombre del archivo: `WT2_R1`**
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b5dc135cfdc48d8089/display?to_ext=fastqsanger
+```
+
+**Nombre del archivo: `WT2_R2`**
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b56a8d627c4f6b68ab/display?to_ext=fastqsanger
+```
+
+**Nombre del archivo: `WT3_R1`**
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b581858f854fe86cd5/display?to_ext=fastqsanger
+```
+
+**Nombre del archivo: `WT3_R2`**
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b58fb3d9efb1be923e/display?to_ext=fastqsanger
+```
+
+### Lecturas de las muestras MUT
+
+**Nombre del archivo: `MUT1_R1`**
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b5f83d87abc4a3b84c/display?to_ext=fastqsanger
+```
+
+**Nombre del archivo: `MUT1_R2`**
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b5a5f986baf67ac388/display?to_ext=fastqsanger
+```
+
+**Nombre del archivo: `MUT2_R1`**
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b5ff7f3c6c38ed670d/display?to_ext=fastqsanger
+```
+
+**Nombre del archivo: `MUT2_R2`**
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b56c392c8d8434b417/display?to_ext=fastqsanger
+```
+
+**Nombre del archivo: `MUT3_R1`**
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b59e7978168e44e2af/display?to_ext=fastqsanger
+```
+
+**Nombre del archivo: `MUT3_R2`**
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b53ac2bb3768dccef1/display?to_ext=fastqsanger
+```
 
 ## Paso 5. Importar el genoma y las anotaciones
 
-Además de las lecturas, utilizaremos tres archivos de referencia. Repitamos el procedimiento de importación con los enlaces de esta tabla y asignemos los nombres indicados.
+Además de las lecturas, utilizaremos tres archivos de referencia. Abre **Upload Data** y sigue el mismo procedimiento: presiona **Paste/Fetch data** para crear un cuadro por archivo, pega su URL y reemplaza **New file** por el nombre indicado. Selecciona el formato correspondiente y presiona **Start** cuando hayas añadido los tres.
 
-| Nombre en el historial | Formato | Para qué lo utilizaremos | Enlace del archivo |
-|---|---|---|---|
-| `Zebrafish_Genome` | `fasta` | Secuencias del genoma de referencia para el alineamiento | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b5176d6ddf4983730f/display?to_ext=fasta) |
-| `Zebrafish_Annotation` | `gtf` | Anotación de genes y exones para el conteo | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b5cf0d676e02c3abfa/display?to_ext=gtf) |
-| `Zebrafish_Annotation_bed` | `bed` | Modelo de transcritos para evaluar la cobertura con RSeQC | [Descargar](https://usegalaxy.org/datasets/bbd44e69cb8906b5e26bf9236db9796c/display?to_ext=bed) |
+**Nombre del archivo: `Zebrafish_Genome`**  
+**Tipo de dato:** `fasta`. Contiene las secuencias del genoma de referencia que utilizaremos para el alineamiento.
 
-El **FASTA** contiene las secuencias de referencia; el **GTF** describe la ubicación de genes y exones; el **BED** proporciona el modelo génico que usaremos en los análisis de cobertura. Estos archivos se utilizarán en las secciones de alineamiento y conteo.
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b5176d6ddf4983730f/display?to_ext=fasta
+```
+
+**Nombre del archivo: `Zebrafish_Annotation`**  
+**Tipo de dato:** `gtf`. Describe la ubicación de genes y exones y se utilizará para el conteo.
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b5cf0d676e02c3abfa/display?to_ext=gtf
+```
+
+**Nombre del archivo: `Zebrafish_Annotation_bed`**  
+**Tipo de dato:** `bed`. Proporciona el modelo génico que usaremos para evaluar la cobertura con RSeQC.
+
+```text
+https://usegalaxy.org/datasets/bbd44e69cb8906b5e26bf9236db9796c/display?to_ext=bed
+```
 
 ## Paso 6. Explorar y organizar el historial
 

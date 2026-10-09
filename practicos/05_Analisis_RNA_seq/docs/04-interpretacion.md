@@ -136,7 +136,7 @@ Interpreta términos con **FDR < 0.05** y revisa el número de genes, el enrique
 
 Si no aparecen términos significativos, informa ese resultado: puede relacionarse con el tamaño de la lista, la anotación o la profundidad del subconjunto. No cambies el fondo o el umbral únicamente para obtener significación.
 
-## Paso 7. Explorar rutas con DAVID — actividad complementaria
+Paso 7. Explorar rutas con DAVID — actividad complementaria
 
 **[DAVID](https://davidbioinformatics.nih.gov/)** permite explorar anotaciones funcionales y rutas asociadas a una lista de genes. Su interfaz puede variar; inicia desde **Functional Annotation**.
 
@@ -150,7 +150,7 @@ Si no aparecen términos significativos, informa ese resultado: puede relacionar
 
 Una ruta enriquecida no está necesariamente activada o inhibida en su conjunto. Para proponer una interpretación, considera las funciones de sus genes, la dirección de sus cambios y cómo se relacionan dentro de la ruta.
 
-Extensión opcional. GSEA con fgsea
+## Extensión opcional. GSEA con fgsea
 
 A diferencia de la sobrerrepresentación, **GSEA** evalúa si los genes de un conjunto se concentran hacia alguno de los extremos de una lista ordenada. No utiliza únicamente genes significativos.
 
@@ -191,7 +191,6 @@ Revisa `NES`, `padj`, tamaño del conjunto y los genes de la fracción principal
 Para realizar GSEA sobre **tu propia ejecución**, debes preparar un ranking con los genes de la tabla completa que tengan estadístico Wald (`stat`) finito, sin limitarlo a genes significativos ni convertir valores ausentes a cero. La lista debe contener identificadores únicos y conservar la dirección MUT/WT.
 
 Los identificadores del ranking deben corresponder a los utilizados por los conjuntos de genes, incluida la especie o una conversión de ortólogos documentada. [MSigDB](https://www.gsea-msigdb.org/gsea/msigdb/index.jsp) ofrece colecciones humanas y murinas: **convertir identificadores Ensembl de pez cebra a Entrez de pez cebra no los convierte en genes humanos**. La procedencia y conversión de la lista proporcionada determinan qué conclusiones biológicas pueden extraerse de este ejercicio.
-
 
 ## Registro del análisis
 
@@ -271,4 +270,3 @@ Distingan un resultado observado de una hipótesis explicativa. Los cambios pued
 Has completado el práctico de análisis de RNA-seq en Galaxy: desde las lecturas originales hasta la interpretación biológica de la expresión diferencial.
 
 [Volver al inicio del práctico](../README.md)
-

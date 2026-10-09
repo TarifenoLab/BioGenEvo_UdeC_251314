@@ -9,7 +9,7 @@ Cada práctico incluye actividades guiadas, preguntas de interpretación y ejerc
 | Actividad | Tema | Sesiones | Material |
 |---|---|---|---|
 | Práctico 4 | Bases de datos genómicas y navegación de genomas | 25 y 28 de septiembre; discusión 2 de octubre | [Acceder al práctico](./Practico_04_Bases_de_datos_genomicas/README.md) |
-| Práctico 5 | Análisis de datos de secuenciación masiva: RNA-seq | 9, 16, 19 y 23 de octubre; discusión 26 de octubre | Próximamente |
+| Práctico 5 | Análisis de datos de secuenciación masiva: RNA-seq | 9, 16, 19 y 23 de octubre; discusión 26 de octubre | [Acceder al práctico](./05_Analisis_RNA_seq/README.md) |
 
 ## Recomendaciones generales
 

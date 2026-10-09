@@ -1,48 +1,24 @@
-# Análisis de RNA-seq en Galaxy — práctico de pregrado
+# Práctico N°5: Análisis de RNA-seq en Galaxy
+**Autora:** Estefanía Tarifeño-Saldivia, TarifenoLab.
 
-**Autora del material original:** Estefanía Tarifeño-Saldivia, TarifenoLab.  
-**Revisión editorial y metodológica:** 7 de octubre de 2026.  
+En este práctico aprenderás a analizar datos de secuenciación de RNA (**RNA-seq**), desde el control de calidad de las lecturas hasta la interpretación biológica de los resultados. Utilizaremos **Galaxy**, una plataforma web que permite realizar análisis bioinformáticos mediante una interfaz gráfica, sin necesidad de programar.
 
 ## La pregunta biológica
 
-¿Cómo cambia la expresión génica en células endocrinas pancreáticas de pez cebra cuando se altera **pax6b**? Trabajaremos con seis muestras: tres de celulas extraidas desde animales wild-type (WT) y tres desde mutantes (MUT). Cada muestra tiene dos archivos de lecturas pareadas, R1 y R2, ya que es una secuenciación pareada. Son **seis réplicas biológicas, no doce**.
+**¿Cómo cambia la expresión génica en células endocrinas pancreáticas de pez cebra cuando se altera el gen *pax6b*?**
 
-El material original utiliza un subconjunto de lecturas del estudio [Lavergne, Tarifeño-Saldivia y colaboradores, BMC Biology (2020)](https://doi.org/10.1186/s12915-020-00840-1). Reducir los datos facilita la docencia, pero limita la detección de genes y uniones de empalme. No esperamos reproducir exactamente las cifras del artículo.
+Para responder esta pregunta, analizaremos seis muestras de células endocrinas pancreáticas: tres obtenidas de animales de tipo silvestre (*wild-type*, **WT**) y tres de animales mutantes para *pax6b* (**MUT**). Cada condición cuenta con **tres réplicas biológicas**.
 
-## Recorrido
+La secuenciación es pareada (*paired-end*): se leen ambos extremos de cada fragmento y las lecturas se guardan en dos archivos por muestra, **R1** y **R2**. Por lo tanto, trabajaremos con **seis muestras y doce archivos FASTQ**.
 
-| Sección | Qué aprenderás | Resultado que conservarás |
+Los datos provienen del estudio [Lavergne, Tarifeño-Saldivia y colaboradores, publicado en BMC Biology (2020)](https://doi.org/10.1186/s12915-020-00840-1). Para facilitar el trabajo durante las sesiones prácticas, utilizaremos un subconjunto de las lecturas originales. Esto reduce el tiempo de análisis, aunque también limita la detección de genes y uniones de empalme; los resultados pueden diferir de los obtenidos con el conjunto completo.
+
+## Recorrido del práctico
+
+| Sección | Qué aprenderás | Resultados que obtendrás |
 |---|---|---|
-| [0. Cuenta y datos](docs/00-cuenta-y-datos.md) | Importar datos y reconocer muestras y pares | 12 FASTQ y referencias compatibles |
-| [1. Calidad y preprocesamiento](docs/01-calidad.md) | Interpretar FastQC y recortar con criterio | Lecturas pareadas procesadas y comparación de calidad |
-| [2. Alineamiento](docs/02-alineamiento.md) | Alinear con HISAT2 y evaluar cobertura | Seis BAM y estadísticas de alineamiento |
-| [3. Conteo y expresión diferencial](docs/03-expresion-diferencial.md) | Contar fragmentos y contrastar MUT frente a WT | Conteos, tabla DESeq2 y gráficos |
-| [4. Interpretación biológica](docs/04-interpretacion.md) | Anotar genes y evaluar enriquecimiento | Tabla final y conclusiones justificadas |
-
-Puedes leer todo en GitHub; no necesitas un sitio adicional para seguir el práctico. Los nombres de las herramientas se mantienen en inglés para encontrarlas en Galaxy. Busca por nombre en el buscador de herramientas: las categorías y botones cambian entre versiones.
-
-## Antes de empezar
-
-- Una cuenta en [Galaxy US](https://usegalaxy.org/), correo verificable y navegador actualizado.
-- Conocimientos básicos de genes, transcritos, exones, réplicas y pruebas estadísticas.
-- Una hoja de registro: usa [esta plantilla](data/registro-analisis.tsv).
-- La persona docente debe completar la [preparación y validación](docs/guia-docente.md). No se ha ejecutado todavía un análisis completo con esta revisión.
-
-El curso no requiere programar. Conserva el historial, los parámetros y las versiones de cada herramienta. Un trabajo en cola no equivale a un error: revisa el estado y el mensaje del dataset antes de repetirlo.
-
-## Datos y reproducibilidad
-
-El [manifiesto](data/datasets.tsv) conserva los enlaces originales y distingue datos esenciales de recursos antiguos opcionales. No alojamos FASTQ ni genomas dentro de Git. Los enlaces antiguos no constituyen un depósito permanente: antes de impartir la clase deben verificarse, y conviene depositar el conjunto docente en un repositorio de datos con identificador persistente y sumas SHA-256.
-
-La revisión elimina resultados numéricos presentados como si fueran universales. El alumnado debe interpretar sus propios gráficos, documentar el contraste **MUT/WT** y discutir las limitaciones.
-
-## Publicación
-
-Consulta [cómo publicar](docs/publicacion.md). Esta carpeta puede incorporarse al repositorio original como versión española, conservando la wiki histórica. No se asigna una licencia nueva sin decisión de la autora; los datos y recursos externos conservan sus propios términos.
-
-## Referencias
-
-- [Galaxy Training Network: RNA-seq con referencia](https://training.galaxyproject.org/topics/transcriptomics/tutorials/ref-based/tutorial.html).
-- [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/), [Trimmomatic](https://github.com/usadellab/Trimmomatic), [HISAT2](https://daehwankimlab.github.io/hisat2/manual/).
-- [HTSeq](https://htseq.readthedocs.io/en/latest/htseqcount.html), [DESeq2](https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html), [RSeQC](https://rseqc.sourceforge.net/).
-- [Ensembl BioMart](https://www.ensembl.org/biomart/martview), [PANTHER](https://www.pantherdb.org/), [Gene Ontology](https://geneontology.org/), [fgsea](https://bioconductor.org/packages/fgsea/).
+| [0. Cuenta y datos](docs/00-cuenta-y-datos.md) | Crear una cuenta en Galaxy, importar los datos e identificar las muestras y sus pares de lecturas | Un historial con los doce archivos FASTQ, el genoma de referencia y sus anotaciones |
+| [1. Calidad y preprocesamiento](docs/01-calidad.md) | Evaluar la calidad con FastQC y procesar las lecturas con Trimmomatic | Lecturas procesadas e informes de calidad antes y después del recorte |
+| [2. Alineamiento](docs/02-alineamiento.md) | Alinear las lecturas al genoma con HISAT2 y evaluar la calidad del alineamiento | Seis archivos BAM, estadísticas de alineamiento y perfiles de cobertura |
+| [3. Conteo y expresión diferencial](docs/03-expresion-diferencial.md) | Obtener conteos por gen, normalizar y comparar MUT frente a WT con DESeq2 | Una tabla de expresión diferencial, conteos normalizados y gráficos para explorar las muestras |
+| [4. Interpretación biológica](docs/04-interpretacion.md) | Incorporar nombres de genes, explorar sus funciones y analizar el enriquecimiento funcional | Una tabla anotada y conclusiones biológicas fundamentadas en los resultados |

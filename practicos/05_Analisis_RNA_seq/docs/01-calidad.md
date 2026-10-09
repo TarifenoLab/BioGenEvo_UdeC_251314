@@ -167,8 +167,61 @@ En los mismos grupos, respondan:
 4. ¿R1 y R2 se comportaron de forma similar?
 5. ¿Qué información perdemos al continuar únicamente con lecturas paired?
 
-Apoyen sus respuestas con los reportes de una muestra WT y una MUT. Conserven los gráficos o capturas que utilizaron y registren los parámetros en su [hoja de análisis](../data/registro-analisis.tsv).
+Apoyen sus respuestas con los reportes de una muestra WT y una MUT. Conserven los gráficos o capturas que utilizaron y completen las tablas de registro que aparecen a continuación.
 
+## Registro del análisis
+
+Copia estas tablas en tu documento de trabajo y complétalas durante el práctico. En las columnas de observaciones, resume los cambios que identificaste en los reportes; no basta con escribir PASS, WARN o FAIL.
+
+### Parámetros utilizados
+
+Como procesaremos todas las muestras con la misma configuración, registra los parámetros una sola vez. Si modificas una ejecución, identifica la muestra y explica el cambio.
+
+| Herramienta o parámetro | Valor utilizado |
+|---|---|
+| Versión de FastQC | |
+| Versión de Trimmomatic | |
+| Tipo de lecturas | Paired-end, dos archivos por muestra |
+| Adaptadores seleccionados | Nextera paired-end |
+| Parámetros de ILLUMINACLIP | |
+| Ventana de SLIDINGWINDOW | 4 bases |
+| Calidad promedio mínima de SLIDINGWINDOW | 25 |
+
+### Retención de pares por muestra
+
+Registra los valores del resumen de Trimmomatic. Si no encuentras el total de entrada en ese resumen, utiliza el número de lecturas de **uno** de los archivos originales del par, obtenido en Basic Statistics de FastQC. No sumes R1 y R2: cada lectura de R1 tiene una pareja en R2.
+
+| Muestra | Pares de entrada | Pares con ambas lecturas conservadas | Retención de pares (%) |
+|---|---|---|---|
+| WT1 | | | |
+| WT2 | | | |
+| WT3 | | | |
+| MUT1 | | | |
+| MUT2 | | | |
+| MUT3 | | | |
+
+**Retención de pares (%) = 100 × pares con ambas lecturas conservadas / pares de entrada.**
+
+### Comparación de calidad antes y después
+
+Completa una fila por archivo. Anota el número de lecturas y la longitud o rango de longitudes que informa FastQC. Describe en la última columna los cambios en calidad por base, adaptadores y bases N.
+
+| Archivo original | Lecturas antes | Lecturas paired después | Longitud antes (nt) | Longitud después (nt) | Cambios observados en FastQC |
+|---|---|---|---|---|---|
+| WT1_R1 | | | | | |
+| WT1_R2 | | | | | |
+| WT2_R1 | | | | | |
+| WT2_R2 | | | | | |
+| WT3_R1 | | | | | |
+| WT3_R2 | | | | | |
+| MUT1_R1 | | | | | |
+| MUT1_R2 | | | | | |
+| MUT2_R1 | | | | | |
+| MUT2_R2 | | | | | |
+| MUT3_R1 | | | | | |
+| MUT3_R2 | | | | | |
+
+El número de lecturas paired después del procesamiento debe coincidir entre R1 y R2 de una misma muestra y corresponder al número de pares con ambas lecturas conservadas.
 ## Antes de continuar
 
 - [ ] Ejecuté FastQC sobre los doce archivos originales.

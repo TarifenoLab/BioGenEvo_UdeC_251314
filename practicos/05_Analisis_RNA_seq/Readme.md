@@ -5,7 +5,7 @@
 
 ## La pregunta biológica
 
-¿Cómo cambia la expresión génica en células endocrinas pancreáticas de pez cebra cuando se altera **pax6b**? Trabajaremos con seis muestras: tres de tipo silvestre (WT) y tres mutantes (MUT). Cada muestra tiene dos archivos de lecturas pareadas, R1 y R2. Son **seis réplicas biológicas, no doce**.
+¿Cómo cambia la expresión génica en células endocrinas pancreáticas de pez cebra cuando se altera **pax6b**? Trabajaremos con seis muestras: tres de celulas extraidas desde animales wild-type (WT) y tres desde mutantes (MUT). Cada muestra tiene dos archivos de lecturas pareadas, R1 y R2, ya que es una secuenciación pareada. Son **seis réplicas biológicas, no doce**.
 
 El material original utiliza un subconjunto de lecturas del estudio [Lavergne, Tarifeño-Saldivia y colaboradores, BMC Biology (2020)](https://doi.org/10.1186/s12915-020-00840-1). Reducir los datos facilita la docencia, pero limita la detección de genes y uniones de empalme. No esperamos reproducir exactamente las cifras del artículo.
 

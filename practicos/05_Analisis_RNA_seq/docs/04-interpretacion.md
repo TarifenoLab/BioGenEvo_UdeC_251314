@@ -136,7 +136,7 @@ Interpreta términos con **FDR < 0.05** y revisa el número de genes, el enrique
 
 Si no aparecen términos significativos, informa ese resultado: puede relacionarse con el tamaño de la lista, la anotación o la profundidad del subconjunto. No cambies el fondo o el umbral únicamente para obtener significación.
 
-Paso 7. Explorar rutas con DAVID — actividad complementaria
+## Paso 7. Explorar rutas con DAVID — actividad complementaria
 
 **[DAVID](https://davidbioinformatics.nih.gov/)** permite explorar anotaciones funcionales y rutas asociadas a una lista de genes. Su interfaz puede variar; inicia desde **Functional Annotation**.
 

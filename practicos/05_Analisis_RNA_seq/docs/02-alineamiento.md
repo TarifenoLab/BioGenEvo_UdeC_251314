@@ -10,6 +10,8 @@ Al finalizar, tendrás **seis archivos BAM**, uno por muestra, sus resúmenes de
 
 Los RNA mensajeros maduros contienen exones unidos después del procesamiento del transcrito. Por eso, una lectura puede corresponder a una región contenida dentro de un exón o abarcar una unión entre dos exones.
 
+(../images/step2.1.png)
+
 | Tipo de alineamiento | Cómo se representa en el genoma |
 |---|---|
 | Lectura contenida en un exón | Se alinea de forma continua en esa región |
